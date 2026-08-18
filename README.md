@@ -13,8 +13,8 @@ Alcance técnico para el traspaso de la presencia digital (WordPress/Elementor, 
 - [Guiones y configuración de anuncios — 7 temas](campanas-ads/guiones-y-configuracion-7-temas.md)
 - [Backlog ClickUp — Investigación 2](campanas-ads/backlog-clickup-investigacion-2.md) (excluye CAE, copy en 3ª persona)
 - [Brief de ejecución de los 3 puntos](campanas-ads/brief-ejecucion-ajustes-2026-08.md)
-- [Auditoría Completa GA4](campanas-ads/auditoria-ga4-completa.md) — 18-08-2026, datos reales vía MCP oficial de Google Analytics (2 propiedades GA4 sin relacionar, tráfico, conversiones, eventos)
-- [Backlog ClickUp — Consolidación y Auditoría GA4](campanas-ads/backlog-clickup-ga4.md) — 18-08-2026, confirmado con datos reales (tareas Agencia-prestador / Cliente-Estudio)
+- [Auditoría Completa GA4](campanas-ads/auditoria-ga4-completa.md) — actualizada 19-08-2026 (segunda corrida, conexión nativa al MCP), datos reales de las 2 propiedades GA4 más el cruce de tráfico/conversiones para cada una de las 14 URL de campaña
+- [Backlog ClickUp — Consolidación y Auditoría GA4](campanas-ads/backlog-clickup-ga4.md) — actualizado 19-08-2026, confirmado con datos reales (11 tareas Agencia-prestador / Cliente-Estudio)
 - [Estructura de Tareas ClickUp — Paid Media & Growth (Constanza Zárate)](clickup/estructura-tareas-clickup.md): desglose de tareas/assets del contrato vigente (17-ago-2026) por Carpeta/Lista/Tarea, con responsable, naturaleza contractual, recurrencia y plataforma, listo para crear el Espacio en ClickUp.
 - [Guía 360° de Marketing Digital para Pymes (2026)](estrategia-360/guia-marketing-digital-360-pyme.md): auditoría cruzada de SEO, SEM (Google/Meta/TikTok/LinkedIn), Funnels comerciales, redes orgánicas y AEO/GEO, contrastada contra el estado del arte de agencias de referencia y las políticas vigentes de las plataformas (18-ago-2026). Checklist priorizado y matriz de qué hacer primero. Se actualiza con la skill `auditoria-360-mkt-digital` (modo actualización).
 
