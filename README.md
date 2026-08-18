@@ -16,6 +16,7 @@ Alcance técnico para el traspaso de la presencia digital (WordPress/Elementor, 
 - [Auditoría Completa GA4](campanas-ads/auditoria-ga4-completa.md) — 18-08-2026, datos reales vía MCP oficial de Google Analytics (2 propiedades GA4 sin relacionar, tráfico, conversiones, eventos)
 - [Backlog ClickUp — Consolidación y Auditoría GA4](campanas-ads/backlog-clickup-ga4.md) — 18-08-2026, confirmado con datos reales (tareas Agencia-prestador / Cliente-Estudio)
 - [Estructura de Tareas ClickUp — Paid Media & Growth (Constanza Zárate)](clickup/estructura-tareas-clickup.md): desglose de tareas/assets del contrato vigente (17-ago-2026) por Carpeta/Lista/Tarea, con responsable, naturaleza contractual, recurrencia y plataforma, listo para crear el Espacio en ClickUp.
+- [Guía 360° de Marketing Digital para Pymes (2026)](estrategia-360/guia-marketing-digital-360-pyme.md): auditoría cruzada de SEO, SEM (Google/Meta/TikTok/LinkedIn), Funnels comerciales, redes orgánicas y AEO/GEO, contrastada contra el estado del arte de agencias de referencia y las políticas vigentes de las plataformas (18-ago-2026). Checklist priorizado y matriz de qué hacer primero. Se actualiza con la skill `auditoria-360-mkt-digital` (modo actualización).
 
 Versiones editables en Word: carpeta [`/descargables`](descargables/). El desglose ClickUp también incluye un CSV plano en [`/descargables/Tareas-ClickUp-Import.csv`](descargables/Tareas-ClickUp-Import.csv) para adaptar al importador de ClickUp.
 
