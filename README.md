@@ -6,7 +6,7 @@ Alcance técnico para el traspaso de la presencia digital (WordPress/Elementor, 
 
 - [Alcance Técnico — SEO](seo/alcance-tecnico-seo.md)
 - [Alcance Técnico — Landing Page y Meta Ads](landing/alcance-tecnico-landing-meta-ads.md)
-- [Auditoría técnica — 14 URL de campañas y recursos de conversión](campanas-ads/auditoria-14-urls.md)
+- [Auditoría técnica — 14 URL de campañas y recursos de conversión](campanas-ads/auditoria-14-urls.md) — complementada 18-08-2026 con resultados Lighthouse (rendimiento, accesibilidad, buenas prácticas, SEO, visibilidad IA) por cada URL
 - [Auditoría de cuenta Meta Ads (datos reales vía MCP) — 17-08-2026](campanas-ads/auditoria-cuenta-meta-ads.md) — ajustada 18-08-2026 (alcance CAE descontado)
 - [Plan de tareas post-ajuste CAE (backlog ClickUp)](campanas-ads/plan-ajustes-post-cae-clickup.md)
 - [Investigación 2 — políticas y algoritmo Meta 2026](campanas-ads/investigacion-2-politicas-algoritmo-meta.md)
