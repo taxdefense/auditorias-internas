@@ -6,6 +6,7 @@ Alcance técnico para el traspaso de la presencia digital (WordPress/Elementor, 
 
 - [Alcance Técnico — SEO](seo/alcance-tecnico-seo.md)
 - [Alcance Técnico — Landing Page y Meta Ads](landing/alcance-tecnico-landing-meta-ads.md)
+- [Auditoría técnica — 14 URL de campañas y recursos de conversión](campanas-ads/auditoria-14-urls.md)
 
 Versiones editables en Word: carpeta [`/descargables`](descargables/).
 
