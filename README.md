@@ -13,6 +13,7 @@ Alcance técnico para el traspaso de la presencia digital (WordPress/Elementor, 
 - [Guiones y configuración de anuncios — 7 temas](campanas-ads/guiones-y-configuracion-7-temas.md)
 - [Backlog ClickUp — Investigación 2](campanas-ads/backlog-clickup-investigacion-2.md) (excluye CAE, copy en 3ª persona)
 - [Brief de ejecución de los 3 puntos](campanas-ads/brief-ejecucion-ajustes-2026-08.md)
+- [Backlog ClickUp — Consolidación y Auditoría GA4](campanas-ads/backlog-clickup-ga4.md) — 18-08-2026, pre-auditoría (tareas Agencia-prestador / Cliente-Estudio), pendiente de complementar con datos reales vía MCP de Google Analytics
 
 Versiones editables en Word: carpeta [`/descargables`](descargables/).
 
