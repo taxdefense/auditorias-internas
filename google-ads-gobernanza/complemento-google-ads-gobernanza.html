@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complemento — Google Ads y Gobernanza — Defensor del Contribuyente</title>
+<style>
+  :root{
+    --navy:#0f2438; --navy2:#16324a; --ink:#1c2b3a; --paper:#f6f4ef;
+    --card:#ffffff; --amber:#d97b29; --amber-dark:#b45f18; --amber-light:#fce8d5;
+    --green:#2f7a4f; --green-light:#e5f3ea; --red:#b3382c; --red-light:#fbe6e3;
+    --yellow:#a1791f; --yellow-light:#fbf1d9; --line:#e4ddd0; --muted:#6b6459;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;}
+  .wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px;}
+  header.top{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;border-radius:16px;padding:32px 30px;margin-bottom:24px;box-shadow:0 8px 30px rgba(15,36,56,.25);}
+  header.top .tag{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:20px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;}
+  header.top h1{margin:0 0 8px;font-size:24px;font-weight:700;}
+  header.top p{color:#cdd9e3;font-size:14px;margin:0;}
+  .notice{background:var(--blue-light,#e3ecf5);border:1px solid #c3d5e8;border-radius:10px;padding:14px 18px;font-size:13px;color:#2b5a8a;margin-bottom:24px;}
+  section{margin-bottom:28px;}
+  h2{font-size:19px;color:var(--navy);border-bottom:3px solid var(--amber);display:inline-block;padding-bottom:5px;margin-bottom:16px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,20,10,.04);}
+  table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;}
+  th{background:var(--navy);color:#fff;text-align:left;padding:9px 11px;font-weight:600;font-size:12px;}
+  td{padding:9px 11px;border-bottom:1px solid var(--line);}
+  tr:last-child td{border-bottom:none;}
+  tr:nth-child(even) td{background:#faf8f3;}
+  .tablewrap{overflow-x:auto;border-radius:10px;border:1px solid var(--line);margin-bottom:14px;}
+  .pill{display:inline-block;padding:2px 9px;border-radius:14px;font-size:11px;font-weight:700;}
+  .pill.ok{background:var(--green-light);color:var(--green);}
+  .pill.blocked{background:var(--red-light);color:var(--red);}
+  .pill.partial{background:var(--yellow-light);color:var(--yellow);}
+  .pill.na{background:#eee;color:#666;}
+  .callout{border-left:5px solid var(--red);background:var(--red-light);border-radius:0 10px 10px 0;padding:16px 20px;margin:16px 0;font-size:13.5px;}
+  .callout strong{display:block;margin-bottom:4px;font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;}
+  code{background:#eee;padding:1px 6px;border-radius:4px;font-size:12px;}
+  .checklist{list-style:none;margin:0;padding:0;}
+  .checklist li{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+  .impact{flex-shrink:0;font-size:10.5px;font-weight:800;text-transform:uppercase;padding:4px 9px;border-radius:6px;min-width:60px;text-align:center;}
+  .impact.p0{background:var(--red-light);color:var(--red);}
+  .impact.medio{background:var(--yellow-light);color:var(--yellow);}
+  .impact.bajo{background:#eee;color:#777;}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding-top:20px;border-top:1px solid var(--line);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="tag">Complemento de auditoría · 18-08-2026</span>
+    <h1>Acceso a Google Ads y gobernanza de cuentas</h1>
+    <p>Defensor del Contribuyente — Complementa (no reemplaza) la línea de auditorías de Meta Ads, GA4 y SEO/Landing ya en curso en este repositorio.</p>
+  </header>
+
+  <div class="notice">
+    Este documento cubre exclusivamente dos cosas no documentadas hasta ahora: el estado de acceso a Google Ads y un mapa consolidado de gobernanza entre las 4 plataformas conectadas. No vuelve a evaluar campañas de Meta, GA4 ni SEO — esos hallazgos ya están documentados y vigentes en el resto del repositorio (ver README).
+  </div>
+
+  <section>
+    <h2>Hallazgo principal: Google Ads bloqueado</h2>
+    <div class="callout">
+      <strong>Acceso programático no disponible</strong>
+      "The developer token is only approved for use with test accounts. To access non-test accounts, apply for Basic or Standard access." Ninguna herramienta conectada a este entorno puede leer ni gestionar Google Ads hasta resolver esto.
+    </div>
+    <div class="tablewrap">
+    <table>
+      <tr><th>Customer ID</th><th>Vínculo con GA4</th><th>Estado</th></tr>
+      <tr><td>8985279729</td><td>Sí — vinculado a defensordelcontribuyente.cl (creado 05-05-2025)</td><td><span class="pill blocked">Datos bloqueados</span></td></tr>
+      <tr><td>2856806495</td><td>No detectado</td><td><span class="pill blocked">Datos bloqueados</span></td></tr>
+      <tr><td>5789067229</td><td>No detectado</td><td><span class="pill blocked">Datos bloqueados</span></td></tr>
+      <tr><td>5020760344</td><td>No detectado</td><td><span class="pill blocked">Datos bloqueados</span></td></tr>
+    </table>
+    </div>
+    <p style="font-size:13.5px;">Según los datos de GA4 ya auditados en este repositorio, Paid Search es el canal de mayor volumen del sitio principal — el canal más grande del negocio, hoy sin auditoría programática posible.</p>
+  </section>
+
+  <section>
+    <h2>Mapa de gobernanza de accesos</h2>
+    <div class="tablewrap">
+    <table>
+      <tr><th>Sistema</th><th>Estado</th><th>Detalle</th></tr>
+      <tr><td>Meta Business Manager / Ad Account</td><td><span class="pill ok">OK</span></td><td>Cuenta activa, pago al día, sin errores</td></tr>
+      <tr><td>Meta Page</td><td><span class="pill partial">Parcial</span></td><td>Términos de Lead Generation no aceptados (no bloqueante hoy)</td></tr>
+      <tr><td>Google Ads API</td><td><span class="pill blocked">Bloqueado</span></td><td>Developer token solo cuentas de prueba</td></tr>
+      <tr><td>Google Analytics 4</td><td><span class="pill ok">OK</span></td><td>Acceso de edición a las 2 propiedades</td></tr>
+      <tr><td>GTM</td><td><span class="pill na">No auditable por API</span></td><td>Requiere acceso directo a la interfaz</td></tr>
+      <tr><td>WordPress / hosting / DNS</td><td><span class="pill na">Fuera de alcance</span></td><td>Sin conector disponible; solicitar directamente</td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Checklist</h2>
+    <ul class="checklist">
+      <li><span class="impact p0">P0</span><div>Solicitar aprobación Basic/Standard del developer token de Google Ads en el API Center.</div></li>
+      <li><span class="impact medio">Medio</span><div>Confirmar responsable de acceso/administración de cada plataforma antes del traspaso formal a la agencia entrante.</div></li>
+      <li><span class="impact bajo">Bajo</span><div>Revisar si las 3 cuentas de Google Ads no vinculadas a GA4 corresponden a Defensor del Contribuyente o a otros clientes visibles por el mismo token.</div></li>
+    </ul>
+  </section>
+
+  <footer>Defensor del Contribuyente — Estudio Jurídico Boutique · Concepción, Chile · Repositorio: taxdefense/auditorias-internas</footer>
+</div>
+</body>
+</html>
