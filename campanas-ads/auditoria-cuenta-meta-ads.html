@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoría Meta Ads — Defensor del Contribuyente</title>
+<style>
+  :root{
+    --navy:#0f2438; --navy2:#16324a; --ink:#1c2b3a; --paper:#f6f4ef;
+    --card:#ffffff; --amber:#d97b29; --amber-dark:#b45f18; --amber-light:#fce8d5;
+    --green:#2f7a4f; --green-light:#e5f3ea; --red:#b3382c; --red-light:#fbe6e3;
+    --yellow:#a1791f; --yellow-light:#fbf1d9; --line:#e4ddd0; --muted:#6b6459;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5;}
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px;}
+  header.top{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;border-radius:16px;padding:36px 32px;margin-bottom:28px;box-shadow:0 8px 30px rgba(15,36,56,.25);}
+  header.top .tag{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:20px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;}
+  header.top h1{margin:0 0 6px;font-size:28px;font-weight:700;}
+  header.top .sub{color:#cdd9e3;font-size:15px;margin-bottom:22px;}
+  .score-row{display:flex;flex-wrap:wrap;gap:22px;align-items:center;}
+  .score-badge{background:#fff;color:var(--navy);border-radius:14px;padding:18px 26px;min-width:150px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.15);}
+  .score-badge .num{font-size:44px;font-weight:800;line-height:1;color:var(--amber-dark);}
+  .score-badge .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:4px;}
+  .verdict{flex:1;min-width:260px;}
+  .verdict .vlabel{display:inline-block;background:var(--yellow-light);color:var(--yellow);font-weight:700;padding:6px 14px;border-radius:8px;font-size:14px;margin-bottom:8px;}
+  .verdict p{margin:0;color:#e7edf2;font-size:14.5px;}
+  section{margin-bottom:32px;}
+  h2{font-size:20px;color:var(--navy);border-bottom:3px solid var(--amber);display:inline-block;padding-bottom:6px;margin-bottom:18px;}
+  h3{font-size:16px;color:var(--navy2);margin:20px 0 10px;}
+  .grid{display:grid;gap:16px;}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  @media (max-width:900px){.grid-4{grid-template-columns:repeat(2,1fr);}.grid-3{grid-template-columns:repeat(2,1fr);}.grid-2{grid-template-columns:1fr;}}
+  @media (max-width:560px){.grid-4{grid-template-columns:1fr;}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,20,10,.04);}
+  .stat .n{font-size:24px;font-weight:800;color:var(--navy);}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .stat .d{font-size:11.5px;margin-top:6px;padding:2px 8px;border-radius:20px;display:inline-block;font-weight:600;}
+  .d.bad{background:var(--red-light);color:var(--red);}
+  .d.warn{background:var(--yellow-light);color:var(--yellow);}
+  .d.good{background:var(--green-light);color:var(--green);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;}
+  caption{text-align:left;font-size:12px;color:var(--muted);padding-bottom:8px;caption-side:top;}
+  th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:12.5px;}
+  td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  tr:nth-child(even) td{background:#faf8f3;}
+  .tablewrap{overflow-x:auto;border-radius:10px;border:1px solid var(--line);}
+  .pill{display:inline-block;padding:2px 9px;border-radius:14px;font-size:11.5px;font-weight:700;}
+  .pill.active{background:var(--green-light);color:var(--green);}
+  .pill.paused{background:#eee;color:#666;}
+  .callout{border-left:5px solid var(--amber);background:var(--amber-light);border-radius:0 10px 10px 0;padding:16px 20px;margin:16px 0;font-size:14px;}
+  .callout.crit{border-color:var(--red);background:var(--red-light);}
+  .callout.good{border-color:var(--green);background:var(--green-light);}
+  .callout strong{display:block;margin-bottom:4px;font-size:13.5px;text-transform:uppercase;letter-spacing:.03em;}
+  .ad-card{display:flex;gap:16px;border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff;margin-bottom:14px;}
+  .ad-card img{width:110px;height:auto;border-radius:8px;object-fit:cover;flex-shrink:0;border:1px solid var(--line);}
+  .ad-card .meta{font-size:12px;color:var(--muted);margin-top:8px;}
+  .angle-tag{display:inline-block;background:var(--navy);color:#fff;font-size:10.5px;padding:2px 8px;border-radius:6px;margin:2px 4px 2px 0;}
+  .checklist{list-style:none;margin:0;padding:0;}
+  .checklist li{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+  .impact{flex-shrink:0;font-size:10.5px;font-weight:800;text-transform:uppercase;padding:4px 9px;border-radius:6px;letter-spacing:.03em;min-width:64px;text-align:center;}
+  .impact.alto{background:var(--red-light);color:var(--red);}
+  .impact.medio{background:var(--yellow-light);color:var(--yellow);}
+  .impact.bajo{background:#eee;color:#777;}
+  .checklist .ctext{font-size:13.8px;}
+  .checklist .ctime{font-size:11.5px;color:var(--muted);margin-top:3px;}
+  .barwrap{background:#eee;border-radius:6px;height:9px;overflow:hidden;margin-top:6px;}
+  .bar{height:100%;border-radius:6px;background:var(--amber);}
+  .score-breakdown td:nth-child(3){width:160px;}
+  .kpi-compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;}
+  .kpi-compare div{background:#faf8f3;border-radius:8px;padding:8px 10px;font-size:12px;}
+  .kpi-compare .v{font-weight:800;font-size:15px;color:var(--navy);}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding-top:20px;border-top:1px solid var(--line);}
+  code{background:#eee;padding:1px 6px;border-radius:4px;font-size:12px;}
+  .source-note{font-size:11.5px;color:var(--muted);font-style:italic;margin-top:6px;}
+  @media print{
+    body{background:#fff;}
+    header.top{background:var(--navy) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .card,.ad-card,.checklist li{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <span class="tag">Auditoría Meta Ads · Defensor del Contribuyente</span>
+    <h1>Diagnóstico de cuenta Meta Ads y landing page</h1>
+    <div class="sub">Datos extraídos en vivo desde la cuenta publicitaria conectada (Meta Ads MCP) — ID de cuenta 949295082543787 · Moneda CLP · Generado el 17-08-2026</div>
+    <div class="score-row">
+      <div class="score-badge">
+        <div class="num">43<span style="font-size:20px;">/100</span></div>
+        <div class="lbl">Puntuación global</div>
+      </div>
+      <div class="verdict">
+        <span class="vlabel">⚠ Campaña con problemas — correcciones necesarias</span>
+        <p>La cuenta tiene buenos cimientos técnicos (pixel activo, sin errores de entrega, CPMs bajos) pero opera con la peor de sus 6 campañas activa mientras las 3 mejores están pausadas, un solo anuncio corriendo hace 16 meses con fatiga confirmada por Meta, y cero eventos de conversión medidos más allá de PageView.</p>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Resumen ejecutivo</h2>
+    <div class="grid grid-4">
+      <div class="card stat"><div class="n">$6.406.027</div><div class="l">Invertido histórico total (6 campañas)</div></div>
+      <div class="card stat"><div class="n">7.043</div><div class="l">Resultados totales (conversaciones + clics)</div></div>
+      <div class="card stat"><div class="n">1 de 6</div><div class="l">Campañas activas hoy</div><span class="d bad">Concentración de riesgo</span></div>
+      <div class="card stat"><div class="n">1 de 70</div><div class="l">Anuncios activos vs. creativos en la cuenta</div><span class="d bad">Banco creativo sin usar</span></div>
+    </div>
+    <div class="callout crit">
+      <strong>🔴 El hallazgo más caro</strong>
+      La única campaña activa ("Diagnósticos Gratuitos") tiene un costo por conversación de <strong>$1.099 CLP</strong>. Las tres campañas CAE, pausadas desde abril de 2026, lograron <strong>$373–$649 CLP</strong> por conversación — hasta 3 veces más eficientes. Hoy el presupuesto se está gastando en la opción más cara mientras las más rentables están apagadas.
+    </div>
+    <div class="callout crit">
+      <strong>🔴 No hay manera de medir un lead real</strong>
+      El Pixel de Meta (524558258682248) está activo y disparando hoy mismo, pero <strong>solo registra el evento PageView</strong>. No existe evento de Lead, contacto, agendamiento ni clic a WhatsApp. Todo el "costo por resultado" que reporta Meta es costo por <em>conversación iniciada</em> en Messenger/WhatsApp — no hay forma de saber cuántas de esas conversaciones se convierten en clientes ni cuánto cuesta cada uno realmente.
+    </div>
+    <div class="callout good">
+      <strong>🟢 Lo que sí funciona</strong>
+      Opportunity Score de Meta: 96/100. CPMs muy por debajo del benchmark del rubro legal (más audiencia por el mismo peso). Cuenta sin errores de entrega, pago al día, pixel activo. El banco de 70 creativos ya cubre ángulos de miedo, curiosidad, oferta, autoridad y testimonio — el problema no es falta de material, es falta de rotación.
+    </div>
+  </section>
+
+  <section>
+    <h2>Cómo se calculó la puntuación</h2>
+    <p style="font-size:13.8px;color:var(--muted);max-width:820px;">Puntuación propia de esta auditoría (0–100), separada del Opportunity Score de Meta — ese mide alineación con buenas prácticas de configuración, no resultado de negocio. Aquí se pondera lo que efectivamente mueve conversión y medición real.</p>
+    <div class="tablewrap">
+    <table class="score-breakdown">
+      <tr><th>Dimensión</th><th>Hallazgo</th><th>Puntaje</th></tr>
+      <tr><td>Salud de cuenta y entrega</td><td>Sin errores bloqueantes, pago al día, pixel disparando</td><td>15/15 <div class="barwrap"><div class="bar" style="width:100%;background:var(--green);"></div></div></td></tr>
+      <tr><td>Estructura y foco de campañas</td><td>La campaña activa es la menos eficiente; las 3 mejores están pausadas</td><td>5/20 <div class="barwrap"><div class="bar" style="width:25%;background:var(--red);"></div></div></td></tr>
+      <tr><td>Frescura y rotación creativa</td><td>1 anuncio activo de 70 disponibles, corriendo 16 meses sin cambio</td><td>4/20 <div class="barwrap"><div class="bar" style="width:20%;background:var(--red);"></div></div></td></tr>
+      <tr><td>Medición y atribución</td><td>Solo PageView registrado; sin eventos de Lead/contacto</td><td>3/15 <div class="barwrap"><div class="bar" style="width:20%;background:var(--red);"></div></div></td></tr>
+      <tr><td>Coherencia oferta ↔ landing</td><td>CTAs dispersos (7 variantes), sin refuerzo de la oferta del anuncio, sin ángulo CAE</td><td>9/15 <div class="barwrap"><div class="bar" style="width:60%;background:var(--yellow);"></div></div></td></tr>
+      <tr><td>Audiencias y segmentación</td><td>3 lookalikes inactivas, audiencia de sitio casi vacía; audiencia CAE activa y sana</td><td>7/15 <div class="barwrap"><div class="bar" style="width:47%;background:var(--yellow);"></div></div></td></tr>
+      <tr style="font-weight:800;"><td>Total</td><td></td><td>43/100</td></tr>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Estructura de campañas (histórico completo)</h2>
+    <p style="font-size:13.5px;color:var(--muted);">6 campañas encontradas en la cuenta, rango de fechas "maximum" (todo el historial disponible). Fuente: <code>ads_get_ad_entities</code>, nivel campaña, Meta Ads MCP.</p>
+    <div class="tablewrap">
+    <table>
+      <tr><th>Campaña</th><th>Estado</th><th>Objetivo</th><th>Gasto</th><th>Impresiones</th><th>CTR</th><th>CPC</th><th>CPM</th><th>Frecuencia</th><th>Costo/resultado</th><th>Resultados</th></tr>
+      <tr><td><strong>Interacción – Diagnósticos Gratuitos</strong><br><span class="meta" style="color:var(--muted);font-size:11px;">desde 21-04-2025</span></td><td><span class="pill active">ACTIVA</span></td><td>Interacción</td><td>$5.338.077</td><td>1.272.060</td><td>1,48%</td><td>$283</td><td>$4.196</td><td style="color:var(--red);font-weight:700;">4,58</td><td style="color:var(--red);font-weight:700;">$1.099</td><td>4.858</td></tr>
+      <tr><td>Interacción – Estrategia CAE Centralizada<br><span class="meta" style="color:var(--muted);font-size:11px;">08-04-2026</span></td><td><span class="pill paused">PAUSADA</span></td><td>Interacción</td><td>$901.929</td><td>347.237</td><td>2,14%</td><td>$121</td><td>$2.597</td><td>2,26</td><td style="color:var(--green);font-weight:700;">$470</td><td>1.920</td></tr>
+      <tr><td>Interacción – Prescripción CAE<br><span class="meta" style="color:var(--muted);font-size:11px;">08-04-2026</span></td><td><span class="pill paused">PAUSADA</span></td><td>Interacción</td><td>$50.000</td><td>13.031</td><td>3,21%</td><td>$120</td><td>$3.837</td><td>1,20</td><td style="color:var(--green);font-weight:700;">$373</td><td>134</td></tr>
+      <tr><td>Interacción – Defensa CAE<br><span class="meta" style="color:var(--muted);font-size:11px;">07-04-2026</span></td><td><span class="pill paused">PAUSADA</span></td><td>Interacción</td><td>$50.000</td><td>9.456</td><td>2,34%</td><td>$226</td><td>$5.288</td><td>1,11</td><td style="color:var(--green);font-weight:700;">$649</td><td>77</td></tr>
+      <tr><td>Interacción – Ley de alivio tributario<br><span class="meta" style="color:var(--muted);font-size:11px;">21-03-2025*</span></td><td><span class="pill paused">PAUSADA</span></td><td>Interacción</td><td>$65.765</td><td>22.113</td><td>1,47%</td><td>$202</td><td>$2.974</td><td>1,71</td><td style="color:var(--red);font-weight:700;">$1.461</td><td>45</td></tr>
+      <tr><td>Tráfico – Página Diagnóstico<br><span class="meta" style="color:var(--muted);font-size:11px;">21-04-2025</span></td><td><span class="pill paused">PAUSADA</span></td><td>Clics al enlace</td><td>$256</td><td>339</td><td>4,13%</td><td>$18</td><td>$755</td><td>1,04</td><td>$28</td><td>9 (clics)</td></tr>
+    </table>
+    </div>
+    <p class="source-note">*El nombre de la campaña dice "21-03-2024" pero el campo <code>created_time</code> de Meta indica 21-03-2025 — inconsistencia de nomenclatura a corregir para no confundir a quien administre la cuenta.</p>
+  </section>
+
+  <section>
+    <h2>El anuncio que se está llevando el 71% del presupuesto activo</h2>
+    <div class="ad-card">
+      <div>
+        <div style="font-weight:700;font-size:15px;">"Video 22" — único anuncio activo de la campaña Diagnósticos Gratuitos</div>
+        <div class="meta">Creado 21-04-2025 · $3.806.440 CLP invertidos (71% del gasto histórico de la campaña) · 839.363 impresiones · CTR 1,39% · Frecuencia 3,79</div>
+        <div class="kpi-compare">
+          <div>Ranking de calidad<br><span class="v">Promedio</span></div>
+          <div>Ranking de interacción<br><span class="v" style="color:var(--red);">Bottom 35%</span></div>
+          <div>Ranking de conversión<br><span class="v" style="color:var(--green);">Sobre el promedio</span></div>
+          <div>Tendencia CTR (Meta)<br><span class="v" style="color:var(--red);">-40,7% · "BAD"</span></div>
+        </div>
+        <div class="callout crit" style="margin-top:12px;">
+          <strong>Diagnóstico textual de Meta</strong>
+          "This ad is not spurring interest." Es un video narrativo (una persona hojeando facturas/convenios de pago) que lleva 16 meses activo sin refresco de creatividad. La frecuencia de 3,79–4,58 confirma que la misma audiencia ya lo vio varias veces.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Banco creativo: 70 creativos en la cuenta, 1 activo</h2>
+    <p style="font-size:13.5px;color:var(--muted);max-width:820px;">La cuenta no tiene un problema de producción de contenido — tiene un problema de rotación. Estos son los ángulos ya producidos y disponibles, agrupados por tipo (textos reales extraídos de los nombres de creativo, que en Meta se autogeneran a partir del texto principal del anuncio):</p>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin-top:0;">🔥 Miedo / urgencia</h3>
+        <div class="angle-tag">🚨 ¡Tesorería puede embargarte hoy!</div>
+        <div class="angle-tag">🚨 ¿Te embargaron la cuenta?</div>
+        <div class="angle-tag">⚠️ ¿Te llegó una cobranza fiscal?</div>
+        <div class="angle-tag">😰 ¿Estás demandado sin saberlo?</div>
+        <div class="angle-tag">⚖️ ¡Defiéndete del Giro del SII hoy!</div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;">❓ Curiosidad / pregunta</h3>
+        <div class="angle-tag">📄 ¿Tienes deuda con Tesorería?</div>
+        <div class="angle-tag">✅ ¿Tu deuda fiscal ya prescribió?</div>
+        <div class="angle-tag">⚠️ ¿Heredaste bienes con deuda?</div>
+        <div class="angle-tag">🎓 ¿CAE puede abordarse por Prescripción Tributaria?</div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;">🎁 Oferta / lead magnet</h3>
+        <div class="angle-tag">🎁 Hoy liberamos 50 diagnósticos gratuitos...</div>
+        <div class="angle-tag">📩 Agenda tu diagnóstico</div>
+        <div class="angle-tag">🎓 ¡Prescribe tu deuda CAE ahora!</div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;">🏆 Autoridad / testimonio</h3>
+        <div class="angle-tag">💼 Más de 10 años ayudando...</div>
+        <div class="angle-tag">📌 Apoyo real, defensa real</div>
+        <div class="angle-tag">Tu defensa Aquí</div>
+        <div class="angle-tag">Testimonio Silvana (Tesorería)</div>
+        <div class="angle-tag">Testimonio Ramón López (Cobranza Fiscal)</div>
+        <div class="angle-tag">Caso de Éxito | Jaime</div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:16px;">
+      <strong>⚠️ Punto de compliance a revisar</strong>
+      Hay un creativo llamado "¡Lo ocultan todo! tal como lo expresa @rfantuzzih…" que cita a un tercero por su usuario de red social. Antes de reactivarlo, confirmar con el equipo legal/de cuenta que exista autorización de uso de esa cita o testimonio, para evitar un rechazo de Meta por políticas de testimonios o un problema de derechos de imagen.
+    </div>
+    <h3>Formatos de creativo ya producidos (confirmado por vista previa real)</h3>
+    <div class="grid grid-3">
+      <div class="card" style="font-size:13px;"><strong>Testimonio real</strong><br>Entrevista en estudio (Silvana, Ramón López) — máxima credibilidad, subutilizado.</div>
+      <div class="card" style="font-size:13px;"><strong>Avatar IA (UGC-style)</strong><br>Video "Video 1/2 CAE" con vocero generado por IA, rotulado como tal — angle CAE, el más eficiente en costo.</div>
+      <div class="card" style="font-size:13px;"><strong>Slide informativo</strong><br>Texto tipo "paper" — "Prescripción Tributaria: ¿CAE puede abordarse por Prescripción Tributaria?"</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Medición y tracking</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin-top:0;">Meta Pixel — "Pixel DDCON Web"</h3>
+        <table style="font-size:13px;">
+          <tr><td>ID</td><td>524558258682248</td></tr>
+          <tr><td>Estado</td><td style="color:var(--green);font-weight:700;">Activo, disparando hoy</td></tr>
+          <tr><td>Cookies 1st-party</td><td>Habilitadas</td></tr>
+          <tr><td>Eventos configurados</td><td style="color:var(--red);font-weight:700;">Solo PageView</td></tr>
+          <tr><td>Tráfico últimos 7 días</td><td>~380 PageView totales (pico 37 en una hora el 17-08)</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;">Landing — tags detectados en el código fuente</h3>
+        <table style="font-size:13px;">
+          <tr><td>GTM contenedor 1</td><td><code>GTM-MQC692WV</code> (cargado 2 veces)</td></tr>
+          <tr><td>GTM contenedor 2</td><td><code>GTM-N7BQZZW</code> (cargado 2 veces)</td></tr>
+          <tr><td>Google Ads</td><td><code>AW-593050363</code></td></tr>
+          <tr><td>HTTPS</td><td style="color:var(--green);">Sí</td></tr>
+          <tr><td>www → apex</td><td>Redirect 301 (funciona, pero agrega un salto)</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="callout crit">
+      <strong>🔴 GTM duplicado — sigue sin resolverse</strong>
+      Este mismo repositorio ya documentó "Google Tag Manager duplicado" como bloqueante #1 en el alcance técnico de traspaso a la agencia. Sigue exactamente igual hoy: dos contenedores GTM distintos, cada uno cargado dos veces en la misma página. Esto ralentiza la carga y puede estar duplicando eventos de conversión — hay que resolverlo antes de confiar en cualquier métrica de conversión que se configure después.
+    </div>
+    <div class="callout crit">
+      <strong>🔴 El Pixel no mide lo que importa</strong>
+      El Pixel está bien instalado (probablemente vía GTM, ya que no hay código <code>fbq()</code> embebido directo) y dispara PageView correctamente. Pero no existe ningún evento de <strong>Lead</strong>, <strong>Contact</strong> ni un evento personalizado de clic a WhatsApp. Resultado: Meta optimiza por "conversación iniciada" dentro de su propia plataforma (dato que sí tiene), pero nadie — ni Meta ni la cuenta — sabe cuántas de esas conversaciones se transforman en un cliente real ni cuánto cuesta cada uno.
+    </div>
+  </section>
+
+  <section>
+    <h2>Audiencias</h2>
+    <div class="tablewrap">
+    <table>
+      <tr><th>Audiencia</th><th>Tipo</th><th>Estado</th><th>Tamaño aprox.</th></tr>
+      <tr><td>Personas con deudas CAE</td><td>Personalizada</td><td><span class="pill active">ACTIVA</span></td><td>3.800 – 4.500</td></tr>
+      <tr><td>Visitantes Web DDCON</td><td>Personalizada (sitio)</td><td><span class="pill active">ACTIVA</span></td><td style="color:var(--red);font-weight:700;">~20</td></tr>
+      <tr><td>Público similar (1%) — Visitantes Web</td><td>Lookalike</td><td><span class="pill paused">INACTIVA</span></td><td>—</td></tr>
+      <tr><td>Público similar (1%) — Personas con deudas CAE</td><td>Lookalike</td><td><span class="pill paused">INACTIVA</span></td><td>—</td></tr>
+      <tr><td>Público similar (1%) — Seguidores Facebook</td><td>Lookalike</td><td><span class="pill paused">INACTIVA</span></td><td>—</td></tr>
+      <tr><td>Seguidores Facebook</td><td>Plataforma</td><td><span class="pill paused">INACTIVA</span></td><td>—</td></tr>
+    </table>
+    </div>
+    <p class="source-note">La audiencia de visitantes del sitio (~20 personas en 180 días) confirma el bajo tráfico web — coherente con una estrategia mayormente Click-to-WhatsApp/Messenger que no siempre pasa por la landing. Las 3 audiencias lookalike están listas pero inactivas: trabajo de segmentación ya hecho que no se está usando en ningún conjunto de anuncios activo.</p>
+  </section>
+
+  <section>
+    <h2>Auditoría de la landing (defensordelcontribuyente.cl)</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin-top:0;">Above the fold</h3>
+        <p style="font-size:13.5px;"><strong>Headline:</strong> "Abogado tributario"<br><strong>Subhead:</strong> "Defensor del Contribuyente para Pymes y Emprendedores"</p>
+        <p style="font-size:13.5px;color:var(--muted);">Genérico frente a los ángulos de mayor conversión (embargo, CAE, prescripción). No hay una sola mención a "CAE" en la home, pese a ser el ángulo con mejor costo por conversación de toda la cuenta.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;">CTAs encontrados (7 variantes distintas)</h3>
+        <p style="font-size:13.5px;">"Necesito ayuda para crecer" · "Contáctanos" · "Conversemos" · "Más info" (x6) · "Agendar Diagnóstico" · "Escríbenos por WhatsApp"</p>
+        <span class="d warn">Dispersión de mensaje — debería ser 1 CTA repetido</span>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;">Formularios</h3>
+        <p style="font-size:13.5px;">3 variantes distintas de formulario conviven en la página (Nombre/RUT/Email/Teléfono/Mensaje vs. Nombre/WhatsApp/Email/Mensaje). Pedir RUT en tráfico frío agrega fricción innecesaria.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;">Prueba social</h3>
+        <p style="font-size:13.5px;">Testimonios con nombre (Marilú López, Gian Pallini, Jaime Quiroga, Mario Fatigante, Rubén V.) pero <strong>sin cifra de resultado visible</strong> ("$X condonado", "X% de deuda eliminada"). Precio y garantía explícita: no mencionados (correcto, según lineamiento de marca).</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Coherencia Ad ↔ Landing</h2>
+    <div class="tablewrap">
+    <table>
+      <tr><th>Ruta</th><th>% del gasto</th><th>Destino</th><th>Message match</th></tr>
+      <tr><td>Campañas de Interacción (Messenger/WhatsApp — nombres "Solo WS")</td><td>~99%</td><td>Conversación directa, no pasa por la landing</td><td style="color:var(--muted);">No verificable vía API — depende del mensaje de apertura en WhatsApp/Messenger, que Meta no expone por esta vía</td></tr>
+      <tr><td>Tráfico – Página Diagnóstico</td><td>&lt;0,01%</td><td>Landing (home)</td><td><strong style="color:var(--yellow);">~70/100</strong> — la landing sí tiene un CTA "Agendar Diagnóstico" que recoge la promesa del anuncio, pero el resto de la home es genérico</td></tr>
+    </table>
+    </div>
+    <div class="callout">
+      <strong>Lectura correcta de este dato</strong>
+      Casi todo el presupuesto usa un embudo conversacional (clic → WhatsApp/Messenger), no landing-first — es una estrategia razonable para un servicio legal de alto contacto. El problema real no es la landing en sí, sino que <strong>si en algún momento se reactiva la campaña CAE o se prueba tráfico a la landing con ese ángulo, hoy no hay ninguna sección que lo respalde.</strong>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recomendaciones oficiales de Meta (Opportunity Score)</h2>
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:10px;">
+        <div style="font-size:32px;font-weight:800;color:var(--green);">96<span style="font-size:16px;color:var(--muted);">/100</span></div>
+        <div style="font-size:13px;color:var(--muted);">Mide alineación con buenas prácticas de configuración de Meta — <strong>no</strong> es una medida de resultado de negocio ni reemplaza los hallazgos de esta auditoría.</div>
+      </div>
+      <table style="font-size:13.5px;">
+        <tr><th>Recomendación</th><th>Ganancia estimada</th><th>Aplica a</th></tr>
+        <tr><td>Combinar formatos: agregar variantes de imagen junto al video en el conjunto de anuncios</td><td>+4 puntos</td><td>Conjunto "Regiones - Diagnóstico" (el que contiene a "Video 22")</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Benchmarks del sector (Legal / Professional Services)</h2>
+    <p style="font-size:12.5px;color:var(--muted);">Conversión referencial a CLP con un tipo de cambio aproximado de $950 CLP/USD (agosto 2026) — usar solo como orden de magnitud. Fuentes públicas 2026: theedigital.com, digitalapplied.com, rule1.ai, get-ryze.ai.</p>
+    <div class="tablewrap">
+    <table>
+      <tr><th>Métrica</th><th>Benchmark legal/servicios profesionales 2026</th><th>Cuenta — campaña activa</th><th>Cuenta — mejores campañas CAE (pausadas)</th></tr>
+      <tr><td>CTR</td><td>1,85% (por debajo de la media general de 2,19%)</td><td style="color:var(--red);">1,48%</td><td style="color:var(--green);">1,95% – 3,21%</td></tr>
+      <tr><td>CPC</td><td>≈ $3.895 CLP (rubro legal) · ≈ $1.824 CLP (lead-gen general)</td><td style="color:var(--green);">$283</td><td style="color:var(--green);">$117 – $134</td></tr>
+      <tr><td>CPM</td><td>≈ $12.825 – $13.490 CLP</td><td style="color:var(--green);">$4.196</td><td style="color:var(--green);">$2.519 – $5.288</td></tr>
+      <tr><td>Costo por lead / CPA</td><td>≈ $178.220 CLP (lead calificado real)</td><td colspan="2" style="color:var(--yellow);">No comparable — la cuenta solo mide "costo por conversación" ($373–$1.461), no costo por lead calificado ni por cliente</td></tr>
+    </table>
+    </div>
+    <div class="callout">
+      <strong>Por qué el CPC/CPM tan bajo no es toda la historia</strong>
+      La cuenta paga muy por debajo del promedio del rubro para poner el anuncio frente a la gente — eso es una fortaleza real. Pero como no hay evento de Lead/conversión, comparar el "costo por resultado" de Meta ($373–$1.461) contra el CPA de referencia del sector ($178.220) sería engañoso: son dos cosas distintas. Hasta que se instrumente el evento de Lead, el verdadero costo por cliente de esta cuenta es un dato que nadie tiene.
+    </div>
+  </section>
+
+  <section>
+    <h2>Checklist de implementación (priorizado por impacto)</h2>
+    <ul class="checklist">
+      <li><span class="impact alto">Alto</span><div><div class="ctext"><strong>Reactivar las 3 campañas CAE pausadas</strong> (Estrategia Centralizada, Prescripción, Defensa) y evaluar pausar o reducir presupuesto de "Diagnósticos Gratuitos" mientras se refresca su creativo. Son 2-3x más eficientes en costo por conversación con datos ya probados.</div><div class="ctime">Impacto: alto · Tiempo: 15 min en Ads Manager</div></div></li>
+      <li><span class="impact alto">Alto</span><div><div class="ctext"><strong>Configurar el evento Lead/Contact en el Pixel</strong> (vía GTM o Conversions API) disparado al enviar el formulario y/o al hacer clic en "Escríbenos por WhatsApp". Sin esto, ninguna optimización futura de Meta sabrá qué es en verdad un lead.</div><div class="ctime">Impacto: alto · Tiempo: 2-4 horas (requiere acceso a GTM)</div></div></li>
+      <li><span class="impact alto">Alto</span><div><div class="ctext"><strong>Refrescar o pausar "Video 22"</strong> y activar 2-3 creativos nuevos del banco de 70 disponibles (o del pack de esta auditoría) en el conjunto "Regiones - Diagnóstico". Meta ya diagnosticó que "no está generando interés".</div><div class="ctime">Impacto: alto · Tiempo: 30 min</div></div></li>
+      <li><span class="impact medio">Medio</span><div><div class="ctext"><strong>Resolver el GTM duplicado</strong> (2 contenedores, cada uno cargado 2 veces). Bloqueante ya identificado en el alcance técnico de este mismo repositorio — sigue pendiente.</div><div class="ctime">Impacto: medio-alto (afecta velocidad y fiabilidad de todo tracking futuro) · Tiempo: 1-2 horas</div></div></li>
+      <li><span class="impact medio">Medio</span><div><div class="ctext"><strong>Agregar variantes de imagen</strong> junto al video en el conjunto activo (recomendación directa de Meta, +4 pts de Opportunity Score).</div><div class="ctime">Impacto: medio · Tiempo: 20 min</div></div></li>
+      <li><span class="impact medio">Medio</span><div><div class="ctext"><strong>Unificar CTAs de la landing a uno solo</strong> ("Agendar mi diagnóstico gratis", repetido 2-3 veces) y simplificar a un único formulario sin RUT en el primer contacto.</div><div class="ctime">Impacto: medio · Tiempo: 1-2 horas de diseño/dev</div></div></li>
+      <li><span class="impact medio">Medio</span><div><div class="ctext"><strong>Reactivar las 3 audiencias lookalike</strong> en un conjunto de prueba — ya están construidas y no cuestan nada mantenerlas encendidas.</div><div class="ctime">Impacto: medio · Tiempo: 15 min</div></div></li>
+      <li><span class="impact bajo">Bajo</span><div><div class="ctext"><strong>Corregir la nomenclatura de campañas</strong> (fechas inconsistentes en nombres, ej. "21-03-2024" vs. creada en 2025) para que cualquier persona que administre la cuenta no se confunda.</div><div class="ctime">Impacto: bajo · Tiempo: 10 min</div></div></li>
+      <li><span class="impact bajo">Bajo</span><div><div class="ctext"><strong>Revisar el creativo que cita a @rfantuzzih</strong> antes de reactivarlo — confirmar derecho de uso de esa cita/testimonio de tercero.</div><div class="ctime">Impacto: bajo (riesgo de compliance) · Tiempo: 10 min de revisión</div></div></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Pack de anuncios nuevos listos para lanzar</h2>
+    <p style="font-size:13.5px;color:var(--muted);">5 ángulos nuevos, pensados para PyMEs y emprendedores chilenos, en el tono directo de la marca. Listos para copiar al Ads Manager.</p>
+
+    <div class="card" style="margin-bottom:14px;">
+      <h3 style="margin-top:0;">1 — Ángulo resultado</h3>
+      <p style="font-size:13.5px;"><strong>Hook:</strong> "Su deuda con Tesorería bajó de $8.400.000 a $0 en 4 meses. Así lo hizo."<br>
+      <strong>Copy:</strong> Nuestro cliente pensaba que su negocio estaba condenado por una deuda fiscal heredada de una sociedad anterior. Revisamos su caso, encontramos un vicio en la cobranza y hoy su PyME sigue operando sin esa carga encima. Si Tesorería te está cobrando algo que no debería, agenda un diagnóstico gratuito y lo revisamos contigo.<br>
+      <strong>Headline:</strong> Diagnóstico gratuito de tu deuda fiscal<br>
+      <strong>Descripción:</strong> Defensa tributaria para Pymes y emprendedores<br>
+      <strong>CTA:</strong> Enviar mensaje<br>
+      <strong>Formato sugerido:</strong> Video testimonial (usar banco existente: Silvana o Ramón López)<br>
+      <strong>Briefing creativo:</strong> Abrir con la cifra en pantalla (antes/después), cortar al testimonio real a los 3 segundos.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px;">
+      <h3 style="margin-top:0;">2 — Ángulo problema</h3>
+      <p style="font-size:13.5px;"><strong>Hook:</strong> "¿Sacaste la CAE hace más de 5 años y todavía te persiguen para pagarla?"<br>
+      <strong>Copy:</strong> Miles de personas siguen pagando (o esquivando) una deuda CAE que legalmente pudo haber prescrito. No es magia, es prescripción tributaria — y es un derecho, no un favor. Escríbenos y revisamos tu caso sin costo.<br>
+      <strong>Headline:</strong> ¿Tu CAE ya prescribió?<br>
+      <strong>Descripción:</strong> Diagnóstico gratuito en minutos<br>
+      <strong>CTA:</strong> Enviar mensaje<br>
+      <strong>Formato sugerido:</strong> Video avatar IA o slide informativo (reusar formato "Video 1/2 CAE", el más eficiente de la cuenta)<br>
+      <strong>Briefing creativo:</strong> Mantener el mismo formato costo-eficiente ya validado, solo variar el hook.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px;">
+      <h3 style="margin-top:0;">3 — Ángulo prueba social</h3>
+      <p style="font-size:13.5px;"><strong>Hook:</strong> "Más de 10 años defendiendo Pymes del SII y la Tesorería. Esto aprendimos."<br>
+      <strong>Copy:</strong> No es la primera vez que alguien nos dice "ya perdí, no hay nada que hacer". Casi siempre hay algo que hacer: condonación, convenio de pago o incluso prescripción. Agenda tu diagnóstico gratuito y te decimos exactamente qué opciones tienes.<br>
+      <strong>Headline:</strong> +10 años defendiendo contribuyentes<br>
+      <strong>Descripción:</strong> Agenda tu diagnóstico gratuito<br>
+      <strong>CTA:</strong> Enviar mensaje<br>
+      <strong>Formato sugerido:</strong> Carrusel con 3-4 casos (sin nombres si no hay autorización, o con testimonios ya autorizados)<br>
+      <strong>Briefing creativo:</strong> Cada tarjeta: un problema distinto (embargo, CAE, giro SII) + resultado.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px;">
+      <h3 style="margin-top:0;">4 — Ángulo curiosidad</h3>
+      <p style="font-size:13.5px;"><strong>Hook:</strong> "El error que comete el 8 de cada 10 emprendedores cuando le llega una carta del SII"<br>
+      <strong>Copy:</strong> No es ignorar la carta. Es responder solo, sin asesoría, y firmar algo que no entendieron del todo. Antes de responder cualquier notificación del SII o Tesorería, escríbenos — el diagnóstico es gratis y puede evitarte un problema mucho más caro.<br>
+      <strong>Headline:</strong> No respondas al SII sin asesoría<br>
+      <strong>Descripción:</strong> Diagnóstico gratuito para Pymes<br>
+      <strong>CTA:</strong> Enviar mensaje<br>
+      <strong>Formato sugerido:</strong> Video corto, gancho hablado a cámara<br>
+      <strong>Briefing creativo:</strong> Persona a cámara, tono cercano, sin oficina ni traje formal — cercanía sobre corporativismo.</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0;">5 — Ángulo contraste</h3>
+      <p style="font-size:13.5px;"><strong>Hook:</strong> "Antes evitaba abrir las cartas de Tesorería. Ahora sé exactamente qué hacer con cada una."<br>
+      <strong>Copy:</strong> El cambio no fue mágico: fue tener un equipo que revisa cada notificación y responde a tiempo. Si hoy te da lo mismo miedo que confusión cuando llega una carta del SII o Tesorería, hablemos.<br>
+      <strong>Headline:</strong> De la angustia fiscal a tener un plan<br>
+      <strong>Descripción:</strong> Agenda tu diagnóstico gratuito<br>
+      <strong>CTA:</strong> Enviar mensaje<br>
+      <strong>Formato sugerido:</strong> Testimonio real (reusar formato "Silvana"/"Ramón López")<br>
+      <strong>Briefing creativo:</strong> Estructura antes/después dicha por la misma persona, sin cortes artificiales.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Nota metodológica</h2>
+    <p style="font-size:13px;color:var(--muted);">
+    Esta auditoría se realizó con acceso directo y autorizado a la cuenta publicitaria de Meta Ads (ID 949295082543787) a través del servidor MCP de Meta Ads conectado a esta sesión — no se estimó ni infirió ningún dato de rendimiento a partir de la Biblioteca de Anuncios pública. Se consultaron: cuentas publicitarias, páginas, campañas/conjuntos/anuncios con métricas del rango histórico completo disponible ("maximum"), Opportunity Score, contexto de anunciante, tendencia de rendimiento, ranking de subasta, errores de entrega, datasets/pixel y su calidad y volumen de eventos, audiencias personalizadas y actividad de cuenta. La landing page se auditó mediante lectura directa de su código fuente HTML (verificación de tags de tracking) y análisis de contenido. Los benchmarks de sector provienen de fuentes públicas 2026 (theedigital.com, digitalapplied.com, rule1.ai, get-ryze.ai) y se presentan como referencia de magnitud, no como comparación exacta.
+    </p>
+  </section>
+
+  <footer>
+    Auditoría generada para Defensor del Contribuyente — Estudio Jurídico Boutique · Concepción, Chile<br>
+    Repositorio: taxdefense/auditorias-internas
+  </footer>
+
+</div>
+</body>
+</html>
