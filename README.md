@@ -15,8 +15,9 @@ Alcance técnico para el traspaso de la presencia digital (WordPress/Elementor, 
 - [Brief de ejecución de los 3 puntos](campanas-ads/brief-ejecucion-ajustes-2026-08.md)
 - [Auditoría Completa GA4](campanas-ads/auditoria-ga4-completa.md) — 18-08-2026, datos reales vía MCP oficial de Google Analytics (2 propiedades GA4 sin relacionar, tráfico, conversiones, eventos)
 - [Backlog ClickUp — Consolidación y Auditoría GA4](campanas-ads/backlog-clickup-ga4.md) — 18-08-2026, confirmado con datos reales (tareas Agencia-prestador / Cliente-Estudio)
+- [Estructura de Tareas ClickUp — Paid Media & Growth (Constanza Zárate)](clickup/estructura-tareas-clickup.md): desglose de tareas/assets del contrato vigente (17-ago-2026) por Carpeta/Lista/Tarea, con responsable, naturaleza contractual, recurrencia y plataforma, listo para crear el Espacio en ClickUp.
 
-Versiones editables en Word: carpeta [`/descargables`](descargables/).
+Versiones editables en Word: carpeta [`/descargables`](descargables/). El desglose ClickUp también incluye un CSV plano en [`/descargables/Tareas-ClickUp-Import.csv`](descargables/Tareas-ClickUp-Import.csv) para adaptar al importador de ClickUp.
 
 ## Orden de prioridad sugerido
 
@@ -26,3 +27,4 @@ Versiones editables en Word: carpeta [`/descargables`](descargables/).
 4. Optimización de conversión de la landing.
 5. Actualización de plataforma (WordPress/Elementor).
 6. Lanzamiento de campañas nuevas.
+7. Puesta en marcha operativa con la nueva agencia (Constanza Zárate): fase inicial del contrato (Cláusula Cuarta) y carga de la estructura de tareas en ClickUp.
