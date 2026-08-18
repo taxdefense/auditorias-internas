@@ -13,13 +13,14 @@ Alcance técnico para el traspaso de la presencia digital (WordPress/Elementor, 
 - [Guiones y configuración de anuncios — 7 temas](campanas-ads/guiones-y-configuracion-7-temas.md)
 - [Backlog ClickUp — Investigación 2](campanas-ads/backlog-clickup-investigacion-2.md) (excluye CAE, copy en 3ª persona)
 - [Brief de ejecución de los 3 puntos](campanas-ads/brief-ejecucion-ajustes-2026-08.md)
-- [Backlog ClickUp — Consolidación y Auditoría GA4](campanas-ads/backlog-clickup-ga4.md) — 18-08-2026, pre-auditoría (tareas Agencia-prestador / Cliente-Estudio), pendiente de complementar con datos reales vía MCP de Google Analytics
+- [Auditoría Completa GA4](campanas-ads/auditoria-ga4-completa.md) — 18-08-2026, datos reales vía MCP oficial de Google Analytics (2 propiedades GA4 sin relacionar, tráfico, conversiones, eventos)
+- [Backlog ClickUp — Consolidación y Auditoría GA4](campanas-ads/backlog-clickup-ga4.md) — 18-08-2026, confirmado con datos reales (tareas Agencia-prestador / Cliente-Estudio)
 
 Versiones editables en Word: carpeta [`/descargables`](descargables/).
 
 ## Orden de prioridad sugerido
 
-1. Consolidar tracking (Google Tag Manager duplicado, evento de Lead ausente en el Pixel) — bloqueante para medir cualquier resultado posterior. Confirmado vigente en la [auditoría de cuenta del 17-08-2026](campanas-ads/auditoria-cuenta-meta-ads.md).
+1. Consolidar tracking (Google Tag Manager duplicado, evento de Lead ausente en el Pixel) — bloqueante para medir cualquier resultado posterior. Confirmado vigente en la [auditoría de cuenta del 17-08-2026](campanas-ads/auditoria-cuenta-meta-ads.md). *(Ajuste 18-08-2026: la [auditoría GA4](campanas-ads/auditoria-ga4-completa.md) confirma un quick win de menos de 30 min dentro de este mismo punto — un evento de conversión de Fiscalización Tributaria no está marcado como tal, perdiendo 19 conversiones reales del último mes.)*
 2. Refrescar el anuncio activo con fatiga confirmada y reducir/pausar "Diagnósticos Gratuitos" mientras se refresca. *(Ajuste 18-08-2026: reactivar las campañas CAE pausadas deja de ser acción inmediata — su oferta/creativo está desactualizado. Se mantienen documentadas como referencia de eficiencia, no como palanca de alcance disponible hoy. Detalle: [plan-ajustes-post-cae-clickup.md](campanas-ads/plan-ajustes-post-cae-clickup.md).)*
 3. Rendimiento y accesibilidad (SEO).
 4. Optimización de conversión de la landing.
