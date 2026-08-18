@@ -7,14 +7,16 @@ Alcance técnico para el traspaso de la presencia digital (WordPress/Elementor, 
 - [Alcance Técnico — SEO](seo/alcance-tecnico-seo.md)
 - [Alcance Técnico — Landing Page y Meta Ads](landing/alcance-tecnico-landing-meta-ads.md)
 - [Auditoría técnica — 14 URL de campañas y recursos de conversión](campanas-ads/auditoria-14-urls.md)
-- [Auditoría de cuenta Meta Ads (datos reales vía MCP) — 17-08-2026](campanas-ads/auditoria-cuenta-meta-ads.md)
+- [Auditoría de cuenta Meta Ads (datos reales vía MCP) — 17-08-2026](campanas-ads/auditoria-cuenta-meta-ads.md) — ajustada 18-08-2026 (alcance CAE descontado)
+- [Plan de tareas post-ajuste CAE (backlog ClickUp)](campanas-ads/plan-ajustes-post-cae-clickup.md)
+- [Investigación 2 — políticas y algoritmo Meta 2026](campanas-ads/investigacion-2-politicas-algoritmo-meta.md)
 
 Versiones editables en Word: carpeta [`/descargables`](descargables/).
 
 ## Orden de prioridad sugerido
 
 1. Consolidar tracking (Google Tag Manager duplicado, evento de Lead ausente en el Pixel) — bloqueante para medir cualquier resultado posterior. Confirmado vigente en la [auditoría de cuenta del 17-08-2026](campanas-ads/auditoria-cuenta-meta-ads.md).
-2. Reactivar las campañas CAE pausadas (2-3x más eficientes que la única campaña activa) y refrescar el anuncio activo con fatiga confirmada.
+2. Refrescar el anuncio activo con fatiga confirmada y reducir/pausar "Diagnósticos Gratuitos" mientras se refresca. *(Ajuste 18-08-2026: reactivar las campañas CAE pausadas deja de ser acción inmediata — su oferta/creativo está desactualizado. Se mantienen documentadas como referencia de eficiencia, no como palanca de alcance disponible hoy. Detalle: [plan-ajustes-post-cae-clickup.md](campanas-ads/plan-ajustes-post-cae-clickup.md).)*
 3. Rendimiento y accesibilidad (SEO).
 4. Optimización de conversión de la landing.
 5. Actualización de plataforma (WordPress/Elementor).

@@ -1,8 +1,10 @@
 # Auditoría de cuenta Meta Ads — Defensor del Contribuyente
 
-**Cuenta:** 949295082543787 (CLP) · **Generado:** 17-08-2026 · **Fuente:** acceso directo vía Meta Ads MCP (datos reales de la cuenta conectada, no Biblioteca de Anuncios pública).
+**Cuenta:** 949295082543787 (CLP) · **Generado:** 17-08-2026 · **Ajustado:** 18-08-2026 · **Fuente:** acceso directo vía Meta Ads MCP (datos reales de la cuenta conectada, no Biblioteca de Anuncios pública).
 
 Versión visual completa: [`auditoria-cuenta-meta-ads.html`](auditoria-cuenta-meta-ads.html) · Versión editable: [`/descargables/Auditoria-Cuenta-Meta-Ads.docx`](../descargables/Auditoria-Cuenta-Meta-Ads.docx)
+
+> ⚠️ **Ajuste 18-08-2026 — alcance CAE descontado.** Las 3 campañas CAE (Estrategia Centralizada, Prescripción, Defensa) **no se eliminan** de este informe: siguen siendo el mejor dato de eficiencia probado de la cuenta (costo por conversación 2-3x mejor que la campaña activa) y se mantienen como banco de aprendizaje y de audiencia. Pero **se descuentan como palanca de alcance inmediato**: su oferta y creativos citan condiciones de la deuda CAE vigentes hasta abril de 2026, hoy desactualizadas. Verificado contra la cuenta real vía Meta MCP (18-08-2026): las 3 campañas siguen `PAUSED` / `delivery: off`, sin errores de entrega ni rechazo de Meta — no es un bloqueo técnico, es una decisión de negocio del Cliente-Estudio. En consecuencia, "reactivar las campañas CAE" **deja de contar como acción de mejora o activación de servicios** hasta que el Cliente-Estudio actualice oferta y creativos a las condiciones CAE vigentes; en ese momento pasan a ser campaña nueva, no reactivación. Detalle de tareas derivadas de este ajuste: [`plan-ajustes-post-cae-clickup.md`](plan-ajustes-post-cae-clickup.md).
 
 ## Puntuación global: 43/100 — Campaña con problemas, correcciones necesarias
 
@@ -17,7 +19,7 @@ Versión visual completa: [`auditoria-cuenta-meta-ads.html`](auditoria-cuenta-me
 
 ## Los dos hallazgos que más cuestan
 
-1. **La única campaña activa es la menos eficiente.** "Diagnósticos Gratuitos" (activa desde abril 2025) cuesta $1.099 CLP por conversación. Las 3 campañas CAE, pausadas desde abril de 2026, lograron $373–$649 CLP — hasta 3x más eficientes — y siguen apagadas.
+1. **La única campaña activa es la menos eficiente.** "Diagnósticos Gratuitos" (activa desde abril 2025) cuesta $1.099 CLP por conversación. Las 3 campañas CAE, pausadas desde abril de 2026, lograron $373–$649 CLP — hasta 3x más eficientes — y siguen apagadas. *(Ajuste 18-08-2026: ese dato de eficiencia se mantiene como referencia histórica, pero las campañas CAE no se reactivan tal como están — su oferta quedó desactualizada. Ver nota al inicio del documento.)*
 2. **No hay evento de conversión medido.** El Pixel (524558258682248) está activo y dispara hoy mismo, pero solo registra `PageView`. No hay Lead, Contact ni clic a WhatsApp. Nadie sabe cuántas de las conversaciones iniciadas en Messenger/WhatsApp terminan siendo clientes.
 
 ## Estructura de campañas (histórico completo)
@@ -52,7 +54,8 @@ Audiencia "Personas con deudas CAE" activa y sana (3.800–4.500). Audiencia de 
 
 | Impacto | Acción |
 |---|---|
-| Alto | Reactivar las 3 campañas CAE pausadas; reducir/pausar "Diagnósticos Gratuitos" mientras se refresca su creativo |
+| ~~Alto~~ → Descontado | ~~Reactivar las 3 campañas CAE pausadas~~ — descontado el 18-08-2026: oferta/creativo desactualizados, requiere actualización de contenido antes de poder ejecutarse (ver nota de ajuste) |
+| Alto | Reducir/pausar "Diagnósticos Gratuitos" mientras se refresca su creativo |
 | Alto | Configurar evento Lead/Contact en el Pixel (GTM o Conversions API) |
 | Alto | Refrescar "Video 22" con creativos ya disponibles del banco de 70 |
 | Medio | Resolver GTM duplicado |
@@ -61,5 +64,7 @@ Audiencia "Personas con deudas CAE" activa y sana (3.800–4.500). Audiencia de 
 | Medio | Reactivar las 3 audiencias lookalike |
 | Bajo | Corregir nomenclatura de campañas (fechas inconsistentes) |
 | Bajo | Revisar compliance del creativo con cita de tercero |
+
+Detalle de tareas y responsables tras el ajuste CAE: [`plan-ajustes-post-cae-clickup.md`](plan-ajustes-post-cae-clickup.md).
 
 Detalle completo, benchmarks de sector, auditoría de landing y pack de 5 anuncios nuevos listos para lanzar: ver [HTML](auditoria-cuenta-meta-ads.html) o [Word](../descargables/Auditoria-Cuenta-Meta-Ads.docx).

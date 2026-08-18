@@ -103,6 +103,10 @@
   </header>
 
   <section>
+    <div class="callout">
+      <strong>⚠ Ajuste 18-08-2026 — alcance CAE descontado</strong>
+      Las 3 campañas CAE no se eliminan de este informe: siguen siendo el mejor dato de eficiencia probado de la cuenta y se mantienen como banco de aprendizaje y de audiencia. Pero se descuentan como palanca de alcance inmediato — su oferta y creativos citan condiciones de la deuda CAE vigentes hasta abril de 2026, hoy desactualizadas. Verificado contra la cuenta real vía Meta MCP: siguen <code>PAUSED</code>, sin errores de entrega ni rechazo de Meta — no es un bloqueo técnico, es una decisión de negocio pendiente de que el Cliente-Estudio actualice oferta y creativos. Hasta entonces, "reactivar CAE" deja de contar como acción de mejora disponible hoy. Detalle de tareas: <a href="plan-ajustes-post-cae-clickup.md">plan-ajustes-post-cae-clickup.md</a>.
+    </div>
     <h2>Resumen ejecutivo</h2>
     <div class="grid grid-4">
       <div class="card stat"><div class="n">$6.406.027</div><div class="l">Invertido histórico total (6 campañas)</div></div>
@@ -112,7 +116,7 @@
     </div>
     <div class="callout crit">
       <strong>🔴 El hallazgo más caro</strong>
-      La única campaña activa ("Diagnósticos Gratuitos") tiene un costo por conversación de <strong>$1.099 CLP</strong>. Las tres campañas CAE, pausadas desde abril de 2026, lograron <strong>$373–$649 CLP</strong> por conversación — hasta 3 veces más eficientes. Hoy el presupuesto se está gastando en la opción más cara mientras las más rentables están apagadas.
+      La única campaña activa ("Diagnósticos Gratuitos") tiene un costo por conversación de <strong>$1.099 CLP</strong>. Las tres campañas CAE, pausadas desde abril de 2026, lograron <strong>$373–$649 CLP</strong> por conversación — hasta 3 veces más eficientes. Ese dato queda como referencia histórica de eficiencia; no implica que puedan reactivarse tal como están (ver ajuste arriba). Hoy el presupuesto se sigue gastando en la única opción activa mientras se define la actualización de oferta CAE.
     </div>
     <div class="callout crit">
       <strong>🔴 No hay manera de medir un lead real</strong>
@@ -348,8 +352,12 @@
 
   <section>
     <h2>Checklist de implementación (priorizado por impacto)</h2>
+    <div class="callout" style="margin-bottom:16px;">
+      <strong>⚠ Ajuste 18-08-2026</strong>
+      El ítem "Reactivar las 3 campañas CAE pausadas" se descuenta de este checklist como acción de impacto alto: su oferta/creativo quedó desactualizado y no puede ejecutarse tal como está. Se mantiene documentado en el detalle de esta auditoría como referencia de eficiencia. Ver tareas derivadas en <a href="plan-ajustes-post-cae-clickup.md">plan-ajustes-post-cae-clickup.md</a>.
+    </div>
     <ul class="checklist">
-      <li><span class="impact alto">Alto</span><div><div class="ctext"><strong>Reactivar las 3 campañas CAE pausadas</strong> (Estrategia Centralizada, Prescripción, Defensa) y evaluar pausar o reducir presupuesto de "Diagnósticos Gratuitos" mientras se refresca su creativo. Son 2-3x más eficientes en costo por conversación con datos ya probados.</div><div class="ctime">Impacto: alto · Tiempo: 15 min en Ads Manager</div></div></li>
+      <li><span class="impact alto">Alto</span><div><div class="ctext"><strong>Pausar o reducir presupuesto de "Diagnósticos Gratuitos"</strong> mientras se refresca su creativo — sigue siendo la única campaña activa y la menos eficiente de la cuenta.</div><div class="ctime">Impacto: alto · Tiempo: 15 min en Ads Manager</div></div></li>
       <li><span class="impact alto">Alto</span><div><div class="ctext"><strong>Configurar el evento Lead/Contact en el Pixel</strong> (vía GTM o Conversions API) disparado al enviar el formulario y/o al hacer clic en "Escríbenos por WhatsApp". Sin esto, ninguna optimización futura de Meta sabrá qué es en verdad un lead.</div><div class="ctime">Impacto: alto · Tiempo: 2-4 horas (requiere acceso a GTM)</div></div></li>
       <li><span class="impact alto">Alto</span><div><div class="ctext"><strong>Refrescar o pausar "Video 22"</strong> y activar 2-3 creativos nuevos del banco de 70 disponibles (o del pack de esta auditoría) en el conjunto "Regiones - Diagnóstico". Meta ya diagnosticó que "no está generando interés".</div><div class="ctime">Impacto: alto · Tiempo: 30 min</div></div></li>
       <li><span class="impact medio">Medio</span><div><div class="ctext"><strong>Resolver el GTM duplicado</strong> (2 contenedores, cada uno cargado 2 veces). Bloqueante ya identificado en el alcance técnico de este mismo repositorio — sigue pendiente.</div><div class="ctime">Impacto: medio-alto (afecta velocidad y fiabilidad de todo tracking futuro) · Tiempo: 1-2 horas</div></div></li>
