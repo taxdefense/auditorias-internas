@@ -10,6 +10,8 @@ Alcance técnico para el traspaso de la presencia digital (WordPress/Elementor, 
 - [Auditoría de cuenta Meta Ads (datos reales vía MCP) — 17-08-2026](campanas-ads/auditoria-cuenta-meta-ads.md) — ajustada 18-08-2026 (alcance CAE descontado)
 - [Plan de tareas post-ajuste CAE (backlog ClickUp)](campanas-ads/plan-ajustes-post-cae-clickup.md)
 - [Investigación 2 — políticas y algoritmo Meta 2026](campanas-ads/investigacion-2-politicas-algoritmo-meta.md)
+- [Guiones y configuración de anuncios — 7 temas](campanas-ads/guiones-y-configuracion-7-temas.md)
+- [Brief de ejecución de los 3 puntos](campanas-ads/brief-ejecucion-ajustes-2026-08.md)
 
 Versiones editables en Word: carpeta [`/descargables`](descargables/).
 
