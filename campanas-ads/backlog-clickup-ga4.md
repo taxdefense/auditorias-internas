@@ -1,10 +1,10 @@
 # Backlog ClickUp — Consolidación y Auditoría GA4
 
-**Fecha:** 18-08-2026 · **Estado:** Confirmado con datos reales — ver [Auditoría Completa GA4](auditoria-ga4-completa.md). **Formato:** tareas listas para crear como cards en ClickUp, uno por fila.
+**Fecha:** 19-08-2026 (segunda corrida, reemplaza la versión del 18-08-2026) · **Estado:** Confirmado con datos reales — ver [Auditoría Completa GA4](auditoria-ga4-completa.md). **Formato:** tareas listas para crear como cards en ClickUp, uno por fila.
 
 ---
 
-> **Nota de método.** La sesión interactiva de Claude Code no logró cargar el servidor MCP de Google Analytics recién instalado, ni tras un reinicio. Se conectó manualmente hablando el protocolo MCP (JSON-RPC sobre stdio) directamente contra el proceso `pipx run analytics-mcp`, con las mismas credenciales ya configuradas — los datos de este backlog son reales, no estimados. Algunas tareas de la primera versión de este backlog quedaron corregidas o eliminadas al confirmarse con datos reales (ver notas por tarea).
+> **Nota de método.** En la primera corrida (18-08-2026), la sesión interactiva de Claude Code no logró cargar el servidor MCP de Google Analytics recién instalado, ni tras un reinicio, y se conectó manualmente hablando el protocolo MCP (JSON-RPC sobre stdio) directamente contra el proceso `pipx run analytics-mcp`. En esta segunda corrida (19-08-2026) el servidor cargó de forma nativa en la sesión y todas las consultas se hicieron con la herramienta oficial integrada — mismos resultados, sin diferencias relevantes entre ambas corridas. Los datos de este backlog son reales en ambos casos, no estimados.
 
 ---
 
@@ -42,6 +42,7 @@
 | # | Tarea / Activo | Tipo | Responsable | Impacto | Tiempo estimado | Notas / criterios de aceptación |
 |---|---|---|---|---|---|---|
 | G10 | Investigar por qué el 57% de quienes inician un formulario no lo terminan (141 `form_start` vs 61 `form_submit_*` en 30 días, dominio principal) | Tarea | Cliente-Estudio + Agencia (revisión conjunta) | Alto | 1-2 horas de análisis + ajustes según hallazgo | Puede ser largo del formulario, campos innecesarios, o fricción de UX — revisar antes de invertir más presupuesto en llevar tráfico a ese mismo formulario |
+| G11 | Confirmar si las URL de campaña con tráfico casi nulo en 30 días siguen activas en campañas pagadas | Tarea | Cliente-Estudio + Agencia (revisión conjunta) | Medio | 1 hora | Del cruce con las 14 URL de la auditoría técnica: `/preguntas-frecuentes-prescripcion-tributaria/` (3 vistas), `servicios./convenios-condonaciones/` (5 vistas/1 sesión), `servicios./blog/perdonazo-tributario-2022/` (1 vista) — confirmar si son recursos legacy o si debería llegarles más tráfico |
 
 ---
 
@@ -53,6 +54,6 @@
 
 ## Resumen para ClickUp
 
-- **10 tareas** (G1-G10): 7 de Agencia-prestador, 2 conjuntas (Cliente-Estudio decide/revisa, Agencia ejecuta), 1 de reunión conjunta.
+- **11 tareas** (G1-G11): 7 de Agencia-prestador, 2 conjuntas (Cliente-Estudio decide/revisa, Agencia ejecuta), 2 de reunión/revisión conjunta.
 - **Quick wins (< 30 min, sección 1 y parte de 3):** G1, G2, G6, G7 — resuelven la pérdida de 19 conversiones/mes y dos errores de configuración, sin desarrollo.
 - Prioridad de secuencia sugerida: **1 (conversiones) → 2 (tracking ausente) → 3 (configuración) → 4 (cross-domain, depende de decisión en G8) → 5 (experiencia de conversión, puede correr en paralelo)**.
