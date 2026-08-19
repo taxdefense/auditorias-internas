@@ -8,7 +8,17 @@
 - **Periodos comprendidos:** documentos técnicos Claude Code: 28-05-2026 y 17/19-08-2026. Informe 360 agencia: histórico jun-2023–jul-2026, con foco en abr–jul 2026 (Google Ads) y "últimos 30 días" para tráfico orgánico reciente. Emitido agosto 2026.
 - **Documentos procesados:** 16 (ver inventario, sección 4).
 - **Documentos no procesados:** 0 archivos ilegibles. 2 documentos (`Guiones-y-Configuracion-7-Temas`, `Estructura-Tareas-ClickUp`) se registraron en el inventario y se usaron como contexto pero no se extrajeron línea por línea al detalle de cifras — son activos operativos (guiones de anuncios, desglose contractual), no auditorías con hallazgos a contrastar; ver limitaciones en Anexos.
-- **Versión del reporte:** v1.0.
+- **Versión del reporte:** v1.1 (ver nota 1.2 — agrega auditoría técnica WordPress y backlog maestro, sin alterar la comparación central con el Informe 360 de la agencia).
+
+## 1.2 Nota de actualización (19-08-2026 — segunda sesión, auditoría WordPress)
+
+Se ejecutó una segunda auditoría, esta vez documental (WXR + inventario de plugins/Wordfence) y en vivo (escaneo de la home, las 10 páginas de servicio y los 7 posts de blog en canibalización), fuera del alcance original de este reporte. **Esta nota es aditiva — no modifica ninguna sección del análisis original (2-13), incluida la comparación contra el Diagnóstico 360 de la agencia.** Se agregó:
+
+- **Sección 4 (inventario documental):** DOC-17 a DOC-23.
+- **Sección 6.15 (nueva):** WordPress técnico, con los hallazgos de la auditoría profunda.
+- **Backlog maestro:** [`consolidado/backlog-maestro-clickup.csv`](backlog-maestro-clickup.csv) — 93 tareas, fusiona sin duplicar los 6 backlogs ya existentes en el repositorio (consolidado de 32, SEO/Landing de 24, GA4 de 11, Investigación 2 de 17+4 activos, Plan post-CAE de 11, Gobernanza Google Ads de 3) más las 14 tareas WordPress y 13 hallazgos nuevos del escaneo en vivo. Es el backlog operativo recomendado a partir de ahora — los backlogs individuales (SL, G, T, CAE, WP) siguen vigentes como fuente por área, pero para trabajo de ClickUp use el maestro.
+- **Hallazgo de mayor relevancia agregado por esta sesión:** el sitio corre un **tercer sistema de tracking no documentado** (Google tag `GT-NCHTQWQT` vía Site Kit by Google, exclusivo del subdominio `servicios.`) y **RUT obligatorio como estándar en casi todos los formularios de captación** — esto último contradice directamente el checklist de mejores prácticas ya escrito en DOC-11 (formulario simplificado 2-3 campos para tráfico frío). Ninguno de los dos hallazgos estaba documentado antes de esta sesión.
+- El escaneo en vivo también **confirma con evidencia técnica más fuerte** la contradicción ya anotada en la sección 9 original (Meta Pixel activo según Ads Manager vs. ausente en el HTML): 0 rastros de `fbq()`/pixel en 11 páginas escaneadas hoy (home + 10 URL de servicio), con el único indicio nuevo siendo una meta tag `facebook-domain-verification` en `servicios.` — no se altera el veredicto ya registrado en la sección 9, se refuerza con más evidencia (ver TASK-066 del backlog maestro).
 
 ## 1.1 Nota de actualización (19-08-2026)
 
@@ -63,6 +73,13 @@ Las auditorías Claude Code y el Informe 360 de la agencia **no compiten por el 
 | DOC-14 | Auditoría SEO — defensordelcontribuyente.cl (versión anterior) | PDF (`Downloads/.../3. Auditoria-seo-defensordelcontribuyente.pdf`) | Claude Code (herramienta anterior: "Claude Code + Beoutique") | SEO técnico | **28-05-2026** | Homepage principalmente | Auditoría con puntuación (70/100) | **Superseded parcialmente por DOC-01/DOC-09** | Foco distinto: homepage y meta tags sociales, no todo el sitio. Persisten sin resolver a agosto: schema LocalBusiness, imagen OG cuadrada, favicon 404 |
 | DOC-15 | Palabras clave verificadas — SEO Public | PDF (`Downloads/.../1. Palabras clave verificadas SEO Public.pdf`) | Herramienta externa (SEO Public) | SEO de contenidos | Snapshot "hace 21 minutos" al momento de exportar (~agosto 2026) | Estado del sitemap indexado | Exportación de herramienta | Vigente | 11 cubiertas, 40 cobertura parcial, 8 sin cobertura |
 | DOC-16 | Diagnóstico Estratégico de Marketing 360 (DDCON) | PDF (`Downloads/.../Informe 360 agencia.pdf`) | Agencia (Constanza Zárate, Paid Media & Growth Partner) | Estrategia 360 / CRM / Google Ads / Meta Ads / SEO / competencia | Agosto 2026 | jun-2023–jul-2026 (histórico), abr–jul 2026 (Google Ads), últimos 30 días / 3 meses / 12 meses (SEO) | Diagnóstico integral | Vigente | Incluye correcciones en vivo acordadas con el cliente ("ajuste de estrategia", 3 casos) |
+| DOC-17 | Exportación WXR del sitio (contenido completo) | Proporcionado por el cliente, no versionado (binario 9,5 MB) | Cliente (export nativo WordPress) | WordPress / contenido | 19-08-2026 | Estado del contenido a esa fecha | Exportación de plataforma | Vigente | 25 posts de blog, 20 CPT de servicio/equipo/casos de éxito |
+| DOC-18 | Transcripción — Plugins y seguridad WordPress | Proporcionado por el cliente, no versionado (fuente intermedia, consolidada en DOC-19) | Cliente (transcripción IA + verificación humana) | WordPress / seguridad | 19-08-2026 | Estado del panel a esa fecha | Transcripción de panel de administración | Vigente | 21 plugins, panel de Wordfence |
+| DOC-19 | Auditoría Técnica — WordPress (Plugins, Seguridad y Contenido) | `wordpress/auditoria-tecnica-wordpress-plugins-seguridad.md` | Claude Code | WordPress técnico | 19-08-2026 | Estado del panel/contenido a esa fecha | Auditoría documental | Vigente | v1 — sin conexión al panel, sin escaneo del dominio |
+| DOC-20 | Auditoría Técnica WordPress — Versión Detallada (Escaneo en Vivo) | `wordpress/auditoria-tecnica-wordpress-detallada.md` | Claude Code | WordPress técnico | 19-08-2026 | Estado en vivo a esa fecha | Auditoría técnica (HTML en vivo) | Vigente | v2 — profundiza DOC-19 con escaneo de home + 10 páginas de servicio + 7 posts de blog |
+| DOC-21 | Correlación — Auditoría Técnica WordPress × Auditorías de Marketing 360° | `consolidado/correlacion-wordpress-marketing-360.md` | Claude Code | WordPress técnico / correlación | 19-08-2026 | — | Correlación entre auditorías | Vigente | Sesión previa a DOC-20; cruza DOC-19 contra DOC-01/DOC-02 |
+| DOC-22 | Backlog ClickUp — Auditoría Técnica WordPress | `consolidado/backlog-clickup-wordpress.csv` | Claude Code | WordPress técnico | 19-08-2026 | — | Backlog (14 tareas, WP-01 a WP-14) | Vigente | Validado con `validar_backlog.py` |
+| DOC-23 | Backlog ClickUp Maestro | `consolidado/backlog-maestro-clickup.csv` | Claude Code | Todas las áreas | 19-08-2026 | — | Backlog fusionado (93 tareas) | Vigente | Fusiona sin duplicar TASK-001..032, SL1-24, G1-11, T1-17+A1-4, CAE-plan (11), Gobernanza Google Ads (3) y WP-01..14, más 13 hallazgos nuevos del escaneo en vivo |
 
 **No procesados al detalle de cifras (contexto, no auditoría):** `campanas-ads/guiones-y-configuracion-7-temas.md` (guiones de anuncios, activo creativo) y el desglose completo de las 108 tareas de `clickup/estructura-tareas-clickup.md` (DOC-10) — se usaron para contexto de gobernanza/responsables, no se extrajeron fila por fila porque no son hallazgos de auditoría sino un desglose contractual y un banco de creatividades.
 
@@ -155,7 +172,23 @@ DOC-11 (Guía 360° Claude Code) y DOC-16 (Informe 360 agencia) tienen el mismo 
 
 Ver sección 12.
 
-## 7. Aciertos del Informe 360 de la agencia
+### 6.15 WordPress técnico (auditoría profunda, DOC-19/DOC-20/DOC-21)
+
+**Naturaleza aditiva de esta subsección:** cubre terreno que ninguna de las 16 fuentes originales (DOC-01 a DOC-16) auditó — inventario de plugins, panel de seguridad, contenido completo del blog vía WXR, y un escaneo en vivo section-by-section/form-by-form/button-by-button de 21 URLs. No reemplaza ni contradice los hallazgos SEO/técnicos ya consolidados en 6.4 y 6.9 — los profundiza.
+
+**Hallazgos consolidados:** 21 plugins instalados (18 activos, 3 inactivos), actualizaciones automáticas deshabilitadas en los 21 sin excepción, dos herramientas de backup instaladas pero **ninguna activa** (sin evidencia de qué respalda el sitio hoy), licencia vencida en Code Snippets Pro (plugin que ejecuta PHP arbitrario en todo el sitio), y canibalización SEO confirmada en 7 posts publicados del blog (3 sobre "Auditoría Tributaria del SII", 4 sobre "Prescripción Tributaria" — uno de estos últimos, el post de 2020, es la página de mayor tráfico histórico real del sitio ya identificada en 6.9).
+
+**Hallazgos exclusivos de esta subsección, sin contraparte en DOC-01 a DOC-16:**
+- **Tercer sistema de tracking no documentado**: el subdominio `servicios.` corre un Google tag adicional (`GT-NCHTQWQT`, vía plugin Site Kit by Google) y una meta tag `facebook-domain-verification`, ninguno presente en el dominio principal ni en `diagnostico.` — el inventario de plugins original (DOC-18/19) solo cubrió el WordPress del dominio principal; `servicios.` es una instalación separada nunca inventariada hasta ahora.
+- **RUT obligatorio como estándar de captación**: 3 de los 4 formularios de la home y la mayoría de los formularios de las 10 páginas de servicio piden RUT en el primer contacto — contradice directamente el checklist de DOC-11 (formulario simplificado 2-3 campos para tráfico frío) y agrega una causa técnica concreta al 57% de abandono de formulario ya documentado vía GA4 (DOC-04/DOC-05, tarea G10/SL6).
+- **Meta description duplicada e inválida** en los 7 posts de blog auditados en vivo, con contenido de otro post pegado por error en 3 de ellos — indicio de causa raíz común con la canibalización (posts creados duplicando plantilla sin limpiar campos).
+- El bug de título Yoast ya reportado (post id 9097) está **solo parcialmente corregido**: el campo social (`og:title`) y el schema ya son correctos, pero el `&lt;title&gt;` real que usa Google en el snippet de búsqueda sigue siendo el de otro post.
+
+**Cruce con hallazgos ya consolidados en 6.4 (14 URL) y 6.9 (SEO técnico):** el escaneo en vivo confirma con datos exactos varios puntos ya señalados de forma agregada — GTM duplicado confirmado en 8 de 11 páginas escaneadas hoy (coincide con DOC-01/DOC-09), doble H1 confirmado en 5+ páginas (coincide con el hallazgo transversal de DOC-09), y refuerza con evidencia técnica más fuerte la contradicción sobre el Meta Pixel ya anotada en la sección 9 (cero rastro de `fbq()`/pixel en 11 páginas escaneadas hoy, vs. pixel activo según Meta Ads Manager en DOC-03) — el único indicio nuevo es la `facebook-domain-verification` de `servicios.`, que no confirma un pixel disparando pero sí una conexión real a Meta Business Manager a nivel de dominio.
+
+**Riesgo de mayor impacto práctico:** actualizar WordPress/Elementor (ya priorizado como punto 5 en el README) no debería ejecutarse hasta confirmar el mecanismo de backup real vigente — las dos herramientas de respaldo instaladas están inactivas, y no hay evidencia documental de qué las reemplaza.
+
+**Backlog:** ver DOC-22 (WP-01 a WP-14) y el backlog maestro DOC-23, que integra estos hallazgos junto con los de 6.1-6.14.
 
 - **Aciertos completos:** el diagnóstico de que el pixel de Meta solo mide `PageView` (validado de forma independiente por DOC-03); la fragmentación de Analytics en dos propiedades (validado y ampliado por DOC-04); la identificación de que Convenios y Condonaciones no tiene campaña activa pese a ser servicio core con novedad normativa fuerte.
 - **Aciertos parciales:** el diagnóstico de indexación (45%) es correcto y verificable (dato de Search Console), pero no profundiza en la causa técnica exacta (GTM duplicado, 3 WordPress distintos) que sí documentan DOC-01/DOC-09.
@@ -281,3 +314,6 @@ Todos los hallazgos de la sección 6.7 (Google Ads) requieren validación direct
 
 ### Fuentes web utilizadas
 Ninguna búsqueda web nueva se ejecutó para este reporte — las fuentes oficiales citadas en la sección 12 (Meta, Google) provienen íntegramente de DOC-08 y DOC-11, ya consultadas y fechadas por las auditorías Claude Code originales (18-08-2026).
+
+### Addendum WordPress (19-08-2026, ver nota 1.2 y sección 6.15)
+La auditoría técnica WordPress (DOC-19/DOC-20) tampoco ejecutó búsquedas web — es documental (WXR + panel de plugins) y en vivo (HTML de 21 URL, sin JavaScript ejecutado, sin autenticación, sin pentesting). Limitación declarada: cualquier tag inyectado dinámicamente por GTM en el navegador (incluido un eventual Meta Pixel) no es detectable por fetch de HTML estático — no se investigaron vulnerabilidades (CVE) de plugins, pendiente de autorización expresa.
