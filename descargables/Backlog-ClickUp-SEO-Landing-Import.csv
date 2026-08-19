@@ -1,0 +1,25 @@
+﻿Space,Folder,List,Task Name,Responsable,Impacto,Esfuerzo,Duracion,Plataforma / Tag,Referencia
+DDCON — SEO y Landing Page,Tracking,Tracking,Consolidar Google Tag Manager en un único contenedor (hoy GTM-N7BQZZW + GTM-MQC692WV activos a la vez),Agencia-prestador,Alto,Bajo,1-2 horas,GTM,Alcance SEO P1 / Backlog GA4
+DDCON — SEO y Landing Page,Tracking,Tracking,Instalar Meta Pixel en la totalidad del sitio + evento Lead en el formulario,Agencia-prestador,Alto,Medio,2-4 horas,Meta Pixel,Alcance Landing P1
+DDCON — SEO y Landing Page,Rendimiento,Rendimiento,Combinar y minificar las 51 hojas de estilo CSS de Elementor,Agencia-prestador,Alto,Medio,3-5 horas,WP Rocket / Elementor,Alcance SEO P2
+DDCON — SEO y Landing Page,Rendimiento,Rendimiento,Reducir JavaScript no utilizado (~294 KiB estimados por Lighthouse),Agencia-prestador,Alto,Medio,3-5 horas,Elementor / plugins,Nuevo — Lighthouse 19-08
+DDCON — SEO y Landing Page,Rendimiento,Rendimiento,"Optimizar el elemento LCP de la home (hoy 12.4s, meta <2.5s)",Agencia-prestador,Alto,Medio,2-4 horas,Lighthouse,Nuevo — Lighthouse 19-08
+DDCON — SEO y Landing Page,CRO,CRO,Investigar el 57% de abandono de formulario (141 form_start vs 61 form_submit/30d),Cliente-Estudio + Agencia,Alto,Medio,1-2 horas análisis + ajustes,GA4 / UX,Alcance Landing P2 / Backlog GA4 G10
+DDCON — SEO y Landing Page,CRO,CRO,Investigar la tasa de rebote de 72% en tráfico Direct (vs 45% Paid Search),Cliente-Estudio + Agencia,Medio,Medio,1-2 horas,GA4,Nuevo — datos reales GA4
+DDCON — SEO y Landing Page,CRO,CRO,Diseñar y probar formulario corto (nombre + teléfono) para tráfico frío de Meta,Agencia-prestador,Medio,Medio,1 día + 2 semanas de test,Landing / Meta Ads,Alcance Landing P2
+DDCON — SEO y Landing Page,CRO,CRO,Variar el texto del CTA entre secciones de la landing,Agencia-prestador,Medio,Bajo,1-2 horas,Landing,Alcance Landing P2
+DDCON — SEO y Landing Page,CRO,CRO,Reforzar la propuesta de valor específica en el primer bloque visible,Agencia-prestador,Medio,Bajo,2-3 horas,Landing,Alcance Landing P2
+DDCON — SEO y Landing Page,CRO,CRO,"Incorporar prueba social numérica (casos resueltos, años de operación) en la home",Agencia-prestador,Medio,Bajo,2-3 horas,Landing,Alcance Landing P3
+DDCON — SEO y Landing Page,Accesibilidad,Accesibilidad,Completar atributo alt en imágenes de contenido (hoy 42% de cobertura en la home),Agencia-prestador,Medio,Medio,3-4 horas,WordPress,Alcance SEO P3
+DDCON — SEO y Landing Page,Accesibilidad,Accesibilidad,Ampliar cobertura de loading=lazy a imágenes fuera del primer scroll (hoy 41%),Agencia-prestador,Bajo,Bajo,1-2 horas,WordPress,Alcance SEO P3
+DDCON — SEO y Landing Page,Datos estructurados,Datos estructurados,Implementar schema LocalBusiness,Agencia-prestador,Medio,Bajo,1-2 horas,Schema / Yoast,Alcance SEO P5
+DDCON — SEO y Landing Page,Datos estructurados,Datos estructurados,Implementar schema Service en las 6 páginas de servicio,Agencia-prestador,Medio,Medio,3-4 horas,Schema / Yoast,Alcance SEO P5
+DDCON — SEO y Landing Page,Datos estructurados,Datos estructurados,Ajustar imagen Open Graph a 1200×630 (hoy cuadrada 1080×1080),Agencia-prestador,Bajo,Bajo,30 min,Yoast SEO,Alcance SEO P5
+DDCON — SEO y Landing Page,Datos estructurados,Datos estructurados,"Completar twitter:title, twitter:description y twitter:image",Agencia-prestador,Bajo,Bajo,30 min,Yoast SEO,Alcance SEO P5
+DDCON — SEO y Landing Page,Datos estructurados,Datos estructurados,Ampliar meta description de la home a 150-160 caracteres (hoy 135),Agencia-prestador,Bajo,Bajo,15 min,Yoast SEO,Alcance SEO P5
+DDCON — SEO y Landing Page,Técnico,Técnico,Apuntar enlaces de menú a /servicios/ y /blog/ con barra final (evitar 301),Agencia-prestador,Bajo,Muy bajo,15 min,WordPress,Alcance SEO P6
+DDCON — SEO y Landing Page,Técnico,Técnico,Agregar cabecera Strict-Transport-Security,Agencia-prestador,Bajo,Bajo,30 min,Servidor / hosting,Alcance SEO P6
+DDCON — SEO y Landing Page,Técnico,Técnico,Resolver respuesta 404 de /favicon.ico,Agencia-prestador,Bajo,Muy bajo,15 min,WordPress,Alcance SEO P6
+DDCON — SEO y Landing Page,Plataforma,Plataforma,Actualizar WordPress (6.8.8) y Elementor/Pro (4.1.4/4.1.2) a la versión estable más reciente,Agencia-prestador,Medio,Alto,1 día (con staging y respaldo),WordPress / Elementor,Alcance SEO P4
+DDCON — SEO y Landing Page,Campañas,Campañas,Publicar el set de anuncios del Anexo A (5 variantes) — condicional a SL2,Agencia-prestador,Alto,Medio,1 día,Meta Ads,Alcance Landing P4
+DDCON — SEO y Landing Page,Campañas,Campañas,"Reporte quincenal de campañas (CTR, CPC, ROAS, costo por lead)",Agencia-prestador,Medio,Bajo,1-2 horas c/u,General,Alcance Landing P4
